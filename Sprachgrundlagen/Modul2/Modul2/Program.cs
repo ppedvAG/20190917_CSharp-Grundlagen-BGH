@@ -121,6 +121,8 @@ namespace Modul2 {
 
             #endregion
 
+            Console.WriteLine();
+
             Console.WriteLine("ENDE");
             Console.ReadLine();
         }
