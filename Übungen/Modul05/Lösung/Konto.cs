@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KontoAnwendung
 {
-    public abstract class Konto
+    public class Konto
     {
         // Eigenschaften
         public string Inhaber { get; set; }
