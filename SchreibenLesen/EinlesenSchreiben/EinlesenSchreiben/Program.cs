@@ -49,6 +49,7 @@ namespace EinlesenSchreiben
             }
 
 
+
             // Datei-Handling mit Hilfsklasse File
 
             //File.Create();
