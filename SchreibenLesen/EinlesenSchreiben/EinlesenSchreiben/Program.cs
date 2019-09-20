@@ -49,6 +49,15 @@ namespace EinlesenSchreiben
             }
 
 
+            // Datei-Handling mit Hilfsklasse File
+
+            //File.Create();
+            //if (File.Exists())
+            //{
+
+            //}
+            //File.Delete();
+
 
             //sw.Close();
 
