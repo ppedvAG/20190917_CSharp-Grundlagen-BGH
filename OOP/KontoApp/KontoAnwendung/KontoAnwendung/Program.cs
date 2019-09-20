@@ -16,7 +16,38 @@ namespace KontoAnwendung
 
             JugendKonto jk1 = new JugendKonto("Jun Will", 500);
 
-            START:
+            #region Generics - List
+            // Erstellen einer Liste, welche nur Konten beinhalten darf
+            // Syntax: List<T> <- T = (Daten)Typ des aufzunehmenden Elementes
+            List<Konto> KontoListe = new List<Konto>();
+
+            // Hinzufügen von Objekten vom Typ Konto
+            KontoListe.Add(gk1);
+            KontoListe.Add(jk1);
+            KontoListe.Add(new GiroKonto("Neuer Inhaber", 5000));
+
+
+            Console.WriteLine(KontoListe[1].Inhaber);
+
+            // Iteration der Kontoliste
+            foreach (Konto konto in KontoListe)
+            {
+                // Ausgabe des Inhabers
+                Console.WriteLine($"Konto-Inhaber: {konto.Inhaber} " );
+            }
+
+            KontoListe.Remove(gk1);
+
+            Console.WriteLine(Environment.NewLine);
+            foreach (Konto konto in KontoListe)
+            {
+                // Ausgabe des Inhabers
+                Console.WriteLine($"Konto-Inhaber: {konto.Inhaber} ");
+            }
+        #endregion Generics - List
+
+
+        START:
 
             Console.WriteLine("Was möchtest du machen?");
             Console.WriteLine("1: Einzahlen / 2: Abheben / 3: Überweisen");
