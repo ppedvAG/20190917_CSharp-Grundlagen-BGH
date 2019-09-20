@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KontoAnwendung
 {
-    public abstract class Konto
+    public abstract class Konto : IÜberweisbar
     {
         // Eigenschaften
         public string Inhaber { get; set; }
@@ -26,6 +26,12 @@ namespace KontoAnwendung
             // Der Abhebe-Betrag ist bei einem GiroKonto nicht limitiert
             this.Kontostand -= betrag;
             return Kontostand;
+        }
+
+        public virtual bool Überweisen(decimal betrag, Konto quellkonto, Konto zielkonto)
+        {
+                zielkonto.Einzahlen(betrag);            
+                return true;
         }
 
         // Konstruktor

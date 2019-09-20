@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6585FBCF-EB57-4F2B-A31B-827E45FBD152}</ProjectGuid>
+    <ProjectGuid>{8161808B-7128-41D5-8F09-170930AF48E0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>KontoAnwendung</RootNamespace>
-    <AssemblyName>KontoAnwendung</AssemblyName>
+    <RootNamespace>Polymorphie</RootNamespace>
+    <AssemblyName>Polymorphie</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GiroKonto.cs" />
-    <Compile Include="IÜberweisbar.cs" />
-    <Compile Include="JugendKonto.cs" />
-    <Compile Include="Konto.cs" />
+    <Compile Include="Werkzeuge\IBeschreibbar.cs" />
+    <Compile Include="Werkzeuge\Kantenantaster.cs" />
+    <Compile Include="Werkzeuge\Kreissucher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Werkzeuge\Werkzeug.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

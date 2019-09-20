@@ -23,7 +23,20 @@ namespace KontoAnwendung
             {
                 Console.WriteLine($"Betrag {betrag},- übersteigt Limit von 50,-");
             }
-            return Kontostand;
+            return Kontostand;   
+        }
+
+
+        public override bool Überweisen(decimal betrag, Konto quellkonto, Konto zielkonto)
+        {
+            if(betrag <= 100)
+            {
+                return base.Überweisen(betrag, quellkonto, zielkonto);
+            } else
+            {
+                Console.WriteLine("Überweisungslimit von 100,- wurde überschritten!");
+                return false;
+            }
             
         }
 
