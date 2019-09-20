@@ -16,16 +16,23 @@ namespace KontoAnwendung
 
         public override decimal Abheben(decimal betrag)
         {
-            if (!(betrag > 50) && !(betrag > Kontostand))
+            try
             {
-                return base.Abheben(betrag);
-            } else
-            {
-                Console.WriteLine($"Betrag {betrag},- übersteigt Limit von 50,-");
-            }
-            return Kontostand;
-        }
+                if (!(betrag > 50) && !(betrag > Kontostand))
+                {
+                    return base.Abheben(betrag);
+                } else
+                {
+                    throw new LimitException("Abhebungs-Limit von 50,- wurde überschritten!");
+                }
 
+            } catch (LimitException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Kontostand;
+            }
+            
+        }
 
         public override bool Überweisen(decimal betrag, Konto quellkonto, Konto zielkonto)
         {
