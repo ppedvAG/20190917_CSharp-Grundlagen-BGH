@@ -10,7 +10,7 @@ namespace KontoAnwendung
     {
         // Eigenschaften
         public string Inhaber { get; set; }
-        public decimal Kontostand { get; private set; }
+        public decimal Kontostand { get; set; }
 
         // Methoden
         public virtual decimal Einzahlen(decimal betrag)

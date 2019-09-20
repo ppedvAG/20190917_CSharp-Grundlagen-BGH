@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace KontoAnwendung
 {
@@ -14,6 +15,8 @@ namespace KontoAnwendung
             GiroKonto gk1 = new GiroKonto("Giro Will", 10000);
 
             JugendKonto jk1 = new JugendKonto("Jun Will", 500);
+
+            START:
 
             Console.WriteLine("Was möchtest du machen?");
             Console.WriteLine("1: Einzahlen / 2: Abheben / 3: Überweisen");
@@ -44,6 +47,7 @@ namespace KontoAnwendung
                     break;
             }
 
+            goto START;
             Console.WriteLine("--- PROGRAMM ENDE ---");
             Console.ReadLine();
 

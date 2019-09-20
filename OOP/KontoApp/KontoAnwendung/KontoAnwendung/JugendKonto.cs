@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KontoAnwendung 
+namespace KontoAnwendung
 {
     public class JugendKonto : Konto
     {
@@ -16,28 +16,36 @@ namespace KontoAnwendung
 
         public override decimal Abheben(decimal betrag)
         {
-            if(!(betrag > 50) && !(betrag > Kontostand))
+            if (!(betrag > 50) && !(betrag > Kontostand))
             {
                 return base.Abheben(betrag);
             } else
             {
                 Console.WriteLine($"Betrag {betrag},- übersteigt Limit von 50,-");
             }
-            return Kontostand;   
+            return Kontostand;
         }
 
 
         public override bool Überweisen(decimal betrag, Konto quellkonto, Konto zielkonto)
         {
-            if(betrag <= 100)
+            try
             {
-                return base.Überweisen(betrag, quellkonto, zielkonto);
-            } else
+                if (!(betrag > 100))
+                {
+                    quellkonto.Kontostand -= betrag;
+                    zielkonto.Kontostand += betrag;
+                    return true;
+                } else
+                {
+                    throw new LimitException("Überweisungslimit von 100,- wurde überschritten!");
+                }
+            } catch (LimitException ex)
             {
-                Console.WriteLine("Überweisungslimit von 100,- wurde überschritten!");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
                 return false;
             }
-            
         }
 
     }
